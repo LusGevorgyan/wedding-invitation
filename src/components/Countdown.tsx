@@ -1,23 +1,65 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import './count-down.css'; 
 
-export default function Countdown() {
-  const [daysLeft, setDaysLeft] = useState<number | null>(null)
+interface CountdownProps {
+  targetDate: Date;
+}
+
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
+const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
+  const calculateTimeLeft = (): TimeLeft | null => {
+    const now = new Date().getTime();
+    const difference = targetDate.getTime() - now;
+
+    if (difference <= 0) return null;
+
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
+  };
+
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(calculateTimeLeft());
 
   useEffect(() => {
-    const weddingDate = new Date('2025-07-20T00:00:00')
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [targetDate]);
 
-    const updateCountdown = () => {
-      const now = new Date()
-      const diff = weddingDate.getTime() - now.getTime()
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24))
-      setDaysLeft(days > 0 ? days : 0)
-    }
+  if (!timeLeft) {
+    return <p className="countdown-ended">Միջոցառումը արդեն սկսվել է։</p>;
+  }
 
-    updateCountdown()
-    const interval = setInterval(updateCountdown, 60 * 1000)
+  return (
+    <div className="countdown-container">
+      <div className="time-box">
+        <div className="number">{String(timeLeft.days).padStart(2, '0')}</div>
+        <div className="label">Օր</div>
+      </div>
+      <div className="time-box">
+        <div className="number">{String(timeLeft.hours).padStart(2, '0')}</div>
+        <div className="label">Ժամ</div>
+      </div>
+      <div className="time-box">
+        <div className="number">{String(timeLeft.minutes).padStart(2, '0')}</div>
+        <div className="label">Րոպե</div>
+      </div>
+      <div className="time-box">
+        <div className="number">{String(timeLeft.seconds).padStart(2, '0')}</div>
+        <div className="label">Վայրկյան</div>
+      </div>
+    </div>
+  );
+};
 
-    return () => clearInterval(interval)
-  }, [])
-
-  return <p>{daysLeft !== null ? `${daysLeft} days to go` : 'Loading...'}</p>
-}
+export default Countdown;

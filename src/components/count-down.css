@@ -1,0 +1,26 @@
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 20px;
+  font-family: 'Segoe UI', sans-serif; /* You can swap this for your wedding font */
+  color: white;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.time-box {
+  text-align: center;
+}
+
+.number {
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.label {
+  font-size: 1.2rem;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}

@@ -1,0 +1,288 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Literata', sans-serif;
+  text-align: center;
+  color: white;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* .page1 {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page1-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: start;
+  gap: 135px;
+  height: 100%;
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    h2 {
+      font-family: 'Literata';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 45px;
+    }
+  }
+  
+}
+
+.bride-groom {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 200px;
+}
+
+.enter-button {
+  padding: 4px 12px;
+  border: none;
+  cursor: pointer;
+   background: linear-gradient(180.52deg, rgba(217, 217, 217, 0.3) 20.21%, rgba(255, 255, 255, 0.3) 99.55%);
+  border-radius: 50px;
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 37px;
+  color: #FFFFFF;
+  width: 150px;
+    opacity: 0;
+  animation: fadeInButton 1.2s ease-out forwards;
+  animation-delay: 0.8s;
+  transform: scale(0.95);
+} */
+
+.page1 {
+   height: 100vh; /* 📏 full height of viewport */
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page1-container {
+  height: 100vh;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.bride-groom {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enter-button {
+  margin-bottom: 40px;
+  padding: 12px 28px;
+  font-size: 20px;
+  font-weight: bold;
+   background: linear-gradient(180.52deg, rgba(217, 217, 217, 0.3) 20.21%, rgba(255, 255, 255, 0.3) 99.55%);
+  color: white;
+   border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  animation: fadeInButton 1.2s ease-out forwards;
+  animation-delay: 0.8s;
+  transform: scale(0.95);
+  opacity: 0;
+  animation: fadeInButton 1.2s ease-out forwards;
+  animation-delay: 0.8s;
+  transform: scale(0.95);
+}
+
+.enter-button:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+
+.page2 {
+  background-color: #222;
+}
+
+.section {
+  padding: 40px 20px;
+}
+
+.countdown-section {
+  background-size: cover;
+  background-position: center;
+}
+
+.slide-img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  font-size: 1rem;
+  margin: 8px 0;
+}
+
+
+/* Calendar */
+.calendar-title {
+  border-bottom: 1px solid #ffff;
+  padding-bottom: 20px;
+  width: 40%;
+  margin: auto;
+  font-family: 'Dancing Script', cursive;
+}
+
+.days-of-week {
+  display: flex;
+  justify-content: center;
+  gap: 1.35rem;
+  margin-top: 1rem;
+  font-family: 'Dancing Script', cursive;
+  color: white;
+}
+
+.day-label {
+  font-size: 0.9rem;
+}
+
+.calendar-days {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  color: white;
+  font-size: 0.875rem;
+}
+
+.calendar-day {
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-icon-svg {
+  position: absolute;
+  top: -12px; 
+  left: 40  %;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 1;
+     animation: pulse 1.5s infinite ease-in-out;
+     /* animation: bounce 1s ease-in-out infinite; */
+       /* animation: floatUpDown 2s ease-in-out infinite; */
+
+
+}
+
+.calendar-day.selected {
+  border: 2px solid white;
+}
+
+.ring-icon {
+  position: absolute;
+  top: -0.75rem;
+  left: -1rem;
+  font-size: 0.25rem;
+}
+
+.red-dot {
+  position: absolute;
+  bottom: 0;
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: red;
+  border-radius: 9999px;
+}
+
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -8px); 
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInButton {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

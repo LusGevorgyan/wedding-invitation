@@ -174,7 +174,8 @@ ul li {
 
 /* Calendar */
 .calendar-title {
-  border-bottom: 1px solid #ffff;
+  border-bottom: 1px solid #222;
+  color: #222;
   padding-bottom: 20px;
   width: 40%;
   margin: auto;
@@ -200,7 +201,7 @@ ul li {
   align-items: center;
   gap: 1rem;
   margin-top: 1rem;
-  color: white;
+  color: #222;
   font-size: 0.875rem;
 }
 
@@ -361,5 +362,5 @@ ul li {
   padding: 30px 20px;
   font-size: 14px;
   line-height: 1.6;
-  color: black;
+  color: #222;
 }

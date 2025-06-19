@@ -5,7 +5,7 @@ body, html {
   text-align: center;
   color: white;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* .page1 {
@@ -129,17 +129,29 @@ body, html {
 
 
 .page2 {
-  background-color: #222;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
+
 
 .section {
   padding: 40px 20px;
 }
 
 .countdown-section {
+  height: 100vh;
+  background-image: url('/images/background5.jpg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
 }
+
 
 .slide-img {
   width: 100%;
@@ -174,7 +186,7 @@ ul li {
   gap: 1.35rem;
   margin-top: 1rem;
   font-family: 'Dancing Script', cursive;
-  color: white;
+  color: rgb(39, 39, 39);
 }
 
 .day-label {
@@ -204,7 +216,7 @@ ul li {
 .ring-icon-svg {
   position: absolute;
   top: -12px; 
-  left: 40  %;
+  left: 40%;
   transform: translateX(-50%);
   width: 40px;
   height: 40px;
@@ -285,4 +297,68 @@ ul li {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+
+.invite-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Hero section with background */
+.hero {
+  height: 100vh;
+  background-image: url('/images/background5.jpg'); /* Replace with your actual image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Overlay content */
+.overlay {
+  background: rgba(0, 0, 0, 0.4); /* semi-transparent for readability */
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Monogram style */
+.monogram {
+  font-size: 48px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.monogram span {
+  padding: 0 10px;
+}
+
+/* Text styles */
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.names {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.date,
+.time {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Description section */
+.description {
+  padding: 30px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: black;
 }

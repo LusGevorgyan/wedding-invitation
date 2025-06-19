@@ -1,0 +1,75 @@
+.love-story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+
+  .text-block {
+    margin-bottom: 1rem;
+    .name-top {
+      font-family: 'Great Vibes', cursive; // or any elegant script
+      font-size: 2rem;
+      font-weight: normal;
+      text-decoration: underline;
+      color: #000;
+      text-align: left;
+    }
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "left right-top"
+      "left right-bottom";
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 500px;
+
+    .photo {
+      position: relative;
+
+      img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      &.left {
+        grid-area: left;
+        grid-row: span 2;
+      }
+
+      &.right-top {
+        grid-area: right-top;
+      }
+
+      &.right-bottom {
+        grid-area: right-bottom;
+      }
+
+      .amp {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Great Vibes', cursive;
+        font-size: 2.5rem;
+        color: white;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .name-bottom {
+        position: absolute;
+        bottom: 0.5rem;
+        right: 1rem;
+        font-family: 'Great Vibes', cursive;
+        font-size: 2rem;
+        color: #000;
+        background: rgba(255, 255, 255, 0.6);
+        padding: 0 0.5rem;
+        border-radius: 4px;
+      }
+    }
+  }
+}
